@@ -8,4 +8,4 @@
 ### Update all the plots when a new sample is selected.
 ### Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
 
-https://github.com/kellyruan42/belly-button-challenge/blob/main/index.html
+https://kellyruan42.github.io/belly-button-challenge/
