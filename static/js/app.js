@@ -21,7 +21,7 @@ function init() {
         });
         
         // set default data 
-        let default_data = (data.names[0]);
+        let default_data = data.names[0];
 
         // call all the functions
         build_bar(default_data);
@@ -129,7 +129,7 @@ function display_metadata(x){
         // clear existing metadata
         panel.html("");
 
-        // load metadata
+        // get each metadata
         Object.entries(result).forEach(([k,v])=>{
             panel.append("h5").text(`${k}: ${v}`);
         });
