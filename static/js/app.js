@@ -13,11 +13,11 @@ function init() {
     d3.json(url).then(function(data) {
 
         // store variable for the dropdown list
-        var choices = d3.select("#selDataset");
+        var selection = d3.select("#selDataset");
 
         // each selection for the dropdrown list
         Object.entries(data.names).forEach(([k,v])=>{
-            choices.append("option").attr("value", v).text(v);
+            selection.append("option").attr("value", v).text(v);
         });
         
         // set default data 
@@ -50,10 +50,10 @@ function build_bar(x){
     d3.json(url).then(function(data) {
 
         // filter sample results
-        let sample = data.samples.filter(y => y.id == x);
+        let sample_data = data.samples.filter(y => y.id == x);
 
         // store results for first id
-        let result = sample[0];
+        let result = sample_data[0];
 
         // get the sample value, otu_ids and otu_labels
         let sample_values = result.sample_values.slice(0, 10).reverse();
@@ -82,10 +82,10 @@ function build_bubble(x){
     d3.json(url).then(function(data) {
 
         // filter sample results
-        let sample = data.samples.filter(y => y.id == x);
+        let sample_data = data.samples.filter(y => y.id == x);
 
         // store results for first id
-        let result = sample[0];
+        let result = sample_data[0];
 
         // get the sample values, otu_ids and otu_labels 
         let sample_values = result.sample_values; 
@@ -99,17 +99,12 @@ function build_bubble(x){
             text: otu_labels,
             mode: "markers",
             marker: {
-                size: sample_values,
-                color: otu_ids,
-                colorscale: "Picnic"
+                size: sample_values, color: otu_ids, colorscale: "Picnic"
             }
         };
         
         // set the layout
-        let layout = {
-            title: `Bacteria in ${x}`,
-            xaxis: {title: "OTU ID"},
-        };
+        let layout = {title: `Bacteria in ${x}`, xaxis: {title: "OTU ID"}};
         
         // plot
         Plotly.newPlot("bubble", [trace], layout);
@@ -122,14 +117,14 @@ function display_metadata(x){
     // call data
     d3.json(url).then(function(data) {
 
-        // set up a panel
+        // create a variable
         var panel = d3.select("#sample-metadata");
 
         // filter sample results
-        let sample = data.metadata.filter(y => y.id == x);
+        let sample_data = data.metadata.filter(y => y.id == x);
 
         // store results for first id
-        let result = sample[0];
+        let result = sample_data[0];
 
         // clear existing metadata
         panel.html("");
