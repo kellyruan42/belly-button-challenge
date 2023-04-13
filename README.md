@@ -6,9 +6,7 @@
 ### Display the sample metadata
 ### Display each key-value pair from the metadata JSON object somewhere on the page.
 ### Update all the plots when a new sample is selected.
-### Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
-
-https://kellyruan42.github.io/belly-button-challenge/
+### Deploy my app: https://kellyruan42.github.io/belly-button-challenge/
 
 
 
